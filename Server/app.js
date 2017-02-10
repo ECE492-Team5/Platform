@@ -20,6 +20,8 @@ mongoose.connect("mongodb://localhost:27017/test");
 
 app.use(express.static(path.resolve(__dirname, "public")));
 
+app.use(morgan("combined"));
+
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
