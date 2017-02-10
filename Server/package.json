@@ -1,0 +1,16 @@
+{
+  "name": "Demo-Server",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "mongoose": "^2.9.10",
+    "morgan": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
