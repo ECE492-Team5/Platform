@@ -1,4 +1,4 @@
-// (C) 2001-2014 Altera Corporation. All rights reserved.
+// (C) 2001-2015 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -31,7 +31,7 @@
 //   ARBITRATION_SCHEME   "no-arb"
 //   PIPELINE_ARB:        0
 //   PKT_TRANS_LOCK:      108 (arbitration locking enabled)
-//   ST_DATA_W:           163
+//   ST_DATA_W:           165
 //   ST_CHANNEL_W:        5
 // ------------------------------------------
 
@@ -41,7 +41,7 @@ module soc_system_mm_interconnect_0_rsp_mux
     // Sinks
     // ----------------------
     input                       sink0_valid,
-    input [163-1   : 0]  sink0_data,
+    input [165-1   : 0]  sink0_data,
     input [5-1: 0]  sink0_channel,
     input                       sink0_startofpacket,
     input                       sink0_endofpacket,
@@ -52,7 +52,7 @@ module soc_system_mm_interconnect_0_rsp_mux
     // Source
     // ----------------------
     output                      src_valid,
-    output [163-1    : 0] src_data,
+    output [165-1    : 0] src_data,
     output [5-1 : 0] src_channel,
     output                      src_startofpacket,
     output                      src_endofpacket,
@@ -64,11 +64,11 @@ module soc_system_mm_interconnect_0_rsp_mux
     input clk,
     input reset
 );
-    localparam PAYLOAD_W        = 163 + 5 + 2;
+    localparam PAYLOAD_W        = 165 + 5 + 2;
     localparam NUM_INPUTS       = 1;
     localparam SHARE_COUNTER_W  = 1;
     localparam PIPELINE_ARB     = 0;
-    localparam ST_DATA_W        = 163;
+    localparam ST_DATA_W        = 165;
     localparam ST_CHANNEL_W     = 5;
     localparam PKT_TRANS_LOCK   = 108;
 

@@ -1,0 +1,7 @@
+db/
+incremental_db/
+*.summary
+*.rpt
+*.smsg
+*.done
+.qsys_edit
