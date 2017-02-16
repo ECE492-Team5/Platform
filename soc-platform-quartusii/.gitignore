@@ -4,4 +4,5 @@ incremental_db/
 *.rpt
 *.smsg
 *.done
+*.cdf
 .qsys_edit
