@@ -31,7 +31,6 @@
 //Date:  Tue Dec  2 09:28:38 2014
 // ============================================================================
 
-`define ENABLE_HPS
 //`define ENABLE_CLK
 
 module hps_fpga_system(
@@ -61,7 +60,6 @@ module hps_fpga_system(
       inout       [35:0] GPIO_0,
       inout       [35:0] GPIO_1,
 
-`ifdef ENABLE_HPS
       ///////// HPS /////////
       inout              HPS_CONV_USB_N,
       output      [14:0] HPS_DDR3_ADDR,
@@ -111,7 +109,6 @@ module hps_fpga_system(
       input              HPS_USB_DIR,
       input              HPS_USB_NXT,
       output             HPS_USB_STP,
-`endif /*ENABLE_HPS*/
 
       ///////// KEY /////////
       input       [1:0]  KEY,
@@ -128,24 +125,22 @@ module hps_fpga_system(
 //  REG/WIRE declarations
 //=======================================================
 // internal wires and registers declaration
-  wire [1:0]  fpga_debounced_buttons;
-  wire [7:0]  fpga_led_internal;
-  wire        hps_fpga_reset_n;
-  wire [2:0]  hps_reset_req;
-  wire        hps_cold_reset;
-  wire        hps_warm_reset;
-  wire        hps_debug_reset;
-  wire [27:0] stm_hw_events;
+    wire [1:0]  fpga_debounced_buttons;
+    wire [7:0]  fpga_led_internal;
+    wire        hps_fpga_reset_n;
+    wire [2:0]  hps_reset_req;
+    wire        hps_cold_reset;
+    wire        hps_warm_reset;
+    wire        hps_debug_reset;
+    wire [27:0] stm_hw_events;
 
 // connection of internal logics
-  assign stm_hw_events    = {{13{1'b0}},SW, fpga_led_internal, fpga_debounced_buttons};
+    assign stm_hw_events    = {{13{1'b0}},SW, fpga_led_internal, fpga_debounced_buttons};
 
 
 //=======================================================
 //  Structural coding
 //=======================================================
-
-
 soc_system u0 (
     //Clock&Reset
     .clk_clk                               (FPGA_CLK1_50 ),           //           clk.clk
@@ -229,44 +224,52 @@ soc_system u0 (
     .hps_0_f2h_warm_reset_req_reset_n      (~hps_warm_reset),         //  hps_0_f2h_warm_reset_req.reset_n
     .hps_0_f2h_debug_reset_req_reset_n     (~hps_debug_reset),        //  hps_0_f2h_debug_reset_req.reset_n
     .hps_0_f2h_cold_reset_req_reset_n      (~hps_cold_reset),         //  hps_0_f2h_cold_reset_req.reset_n
-    .leds_pio_0_external_connection_export (LED)                      //  leds_pio_0_external_connection.export
+    
+    //7 GREEN LEDS
+    .leds_pio_0_external_connection_export (LED),                      //  leds_pio_0_external_connection.export
+    
+    //8 CHANNEL ADC (On-board SPI Interface Controller) Component From Terasic 
+    .adc_ltc2308_0_conduit_end_adc_convst  (ADC_CONVST),               //  adc_ltc2308_0_conduit_end.adc_convst
+    .adc_ltc2308_0_conduit_end_adc_sck     (ADC_SCK),                  //                           .adc_sck
+    .adc_ltc2308_0_conduit_end_adc_sdi     (ADC_SDI),                  //                           .adc_sdi
+    .adc_ltc2308_0_conduit_end_adc_sdo     (ADC_SDO)                   //                           .adc_sdo
 );
 
 
 // Source/Probe megawizard instance
 hps_reset hps_reset_inst (
-  .source_clk (FPGA_CLK1_50),
-  .source     (hps_reset_req)
+    .source_clk (FPGA_CLK1_50),
+    .source     (hps_reset_req)
 );
 
 altera_edge_detector pulse_cold_reset (
-  .clk       (FPGA_CLK1_50),
-  .rst_n     (hps_fpga_reset_n),
-  .signal_in (hps_reset_req[0]),
-  .pulse_out (hps_cold_reset)
+    .clk       (FPGA_CLK1_50),
+    .rst_n     (hps_fpga_reset_n),
+    .signal_in (hps_reset_req[0]),
+    .pulse_out (hps_cold_reset)
 );
-  defparam pulse_cold_reset.PULSE_EXT = 6;
-  defparam pulse_cold_reset.EDGE_TYPE = 1;
-  defparam pulse_cold_reset.IGNORE_RST_WHILE_BUSY = 1;
+    defparam pulse_cold_reset.PULSE_EXT = 6;
+    defparam pulse_cold_reset.EDGE_TYPE = 1;
+    defparam pulse_cold_reset.IGNORE_RST_WHILE_BUSY = 1;
 
 altera_edge_detector pulse_warm_reset (
-  .clk       (FPGA_CLK1_50),
-  .rst_n     (hps_fpga_reset_n),
-  .signal_in (hps_reset_req[1]),
-  .pulse_out (hps_warm_reset)
+    .clk       (FPGA_CLK1_50),
+    .rst_n     (hps_fpga_reset_n),
+    .signal_in (hps_reset_req[1]),
+    .pulse_out (hps_warm_reset)
 );
-  defparam pulse_warm_reset.PULSE_EXT = 2;
-  defparam pulse_warm_reset.EDGE_TYPE = 1;
-  defparam pulse_warm_reset.IGNORE_RST_WHILE_BUSY = 1;
+    defparam pulse_warm_reset.PULSE_EXT = 2;
+    defparam pulse_warm_reset.EDGE_TYPE = 1;
+    defparam pulse_warm_reset.IGNORE_RST_WHILE_BUSY = 1;
   
 altera_edge_detector pulse_debug_reset (
-  .clk       (FPGA_CLK1_50),
-  .rst_n     (hps_fpga_reset_n),
-  .signal_in (hps_reset_req[2]),
-  .pulse_out (hps_debug_reset)
+    .clk       (FPGA_CLK1_50),
+    .rst_n     (hps_fpga_reset_n),
+    .signal_in (hps_reset_req[2]),
+    .pulse_out (hps_debug_reset)
 );
-  defparam pulse_debug_reset.PULSE_EXT = 32;
-  defparam pulse_debug_reset.EDGE_TYPE = 1;
-  defparam pulse_debug_reset.IGNORE_RST_WHILE_BUSY = 1;
+    defparam pulse_debug_reset.PULSE_EXT = 32;
+    defparam pulse_debug_reset.EDGE_TYPE = 1;
+    defparam pulse_debug_reset.IGNORE_RST_WHILE_BUSY = 1;
 
 endmodule

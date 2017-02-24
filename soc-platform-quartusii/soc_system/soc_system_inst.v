@@ -1,4 +1,8 @@
 	soc_system u0 (
+		.adc_ltc2308_0_conduit_end_adc_convst  (<connected-to-adc_ltc2308_0_conduit_end_adc_convst>),  //      adc_ltc2308_0_conduit_end.adc_convst
+		.adc_ltc2308_0_conduit_end_adc_sck     (<connected-to-adc_ltc2308_0_conduit_end_adc_sck>),     //                               .adc_sck
+		.adc_ltc2308_0_conduit_end_adc_sdi     (<connected-to-adc_ltc2308_0_conduit_end_adc_sdi>),     //                               .adc_sdi
+		.adc_ltc2308_0_conduit_end_adc_sdo     (<connected-to-adc_ltc2308_0_conduit_end_adc_sdo>),     //                               .adc_sdo
 		.clk_clk                               (<connected-to-clk_clk>),                               //                            clk.clk
 		.hps_0_f2h_cold_reset_req_reset_n      (<connected-to-hps_0_f2h_cold_reset_req_reset_n>),      //       hps_0_f2h_cold_reset_req.reset_n
 		.hps_0_f2h_debug_reset_req_reset_n     (<connected-to-hps_0_f2h_debug_reset_req_reset_n>),     //      hps_0_f2h_debug_reset_req.reset_n
@@ -70,6 +74,8 @@
 		.memory_mem_odt                        (<connected-to-memory_mem_odt>),                        //                               .mem_odt
 		.memory_mem_dm                         (<connected-to-memory_mem_dm>),                         //                               .mem_dm
 		.memory_oct_rzqin                      (<connected-to-memory_oct_rzqin>),                      //                               .oct_rzqin
+		.pll_0_locked_export                   (<connected-to-pll_0_locked_export>),                   //                   pll_0_locked.export
+		.pll_0_outclk2_clk                     (<connected-to-pll_0_outclk2_clk>),                     //                  pll_0_outclk2.clk
 		.reset_reset_n                         (<connected-to-reset_reset_n>)                          //                          reset.reset_n
 	);
 

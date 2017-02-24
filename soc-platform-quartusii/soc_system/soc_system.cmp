@@ -1,5 +1,9 @@
 	component soc_system is
 		port (
+			adc_ltc2308_0_conduit_end_adc_convst  : out   std_logic;                                        -- adc_convst
+			adc_ltc2308_0_conduit_end_adc_sck     : out   std_logic;                                        -- adc_sck
+			adc_ltc2308_0_conduit_end_adc_sdi     : out   std_logic;                                        -- adc_sdi
+			adc_ltc2308_0_conduit_end_adc_sdo     : in    std_logic                     := 'X';             -- adc_sdo
 			clk_clk                               : in    std_logic                     := 'X';             -- clk
 			hps_0_f2h_cold_reset_req_reset_n      : in    std_logic                     := 'X';             -- reset_n
 			hps_0_f2h_debug_reset_req_reset_n     : in    std_logic                     := 'X';             -- reset_n
@@ -71,6 +75,8 @@
 			memory_mem_odt                        : out   std_logic;                                        -- mem_odt
 			memory_mem_dm                         : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                      : in    std_logic                     := 'X';             -- oct_rzqin
+			pll_0_locked_export                   : out   std_logic;                                        -- export
+			pll_0_outclk2_clk                     : out   std_logic;                                        -- clk
 			reset_reset_n                         : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component soc_system;

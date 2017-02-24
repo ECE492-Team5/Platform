@@ -1,5 +1,9 @@
 
 module soc_system (
+	adc_ltc2308_0_conduit_end_adc_convst,
+	adc_ltc2308_0_conduit_end_adc_sck,
+	adc_ltc2308_0_conduit_end_adc_sdi,
+	adc_ltc2308_0_conduit_end_adc_sdo,
 	clk_clk,
 	hps_0_f2h_cold_reset_req_reset_n,
 	hps_0_f2h_debug_reset_req_reset_n,
@@ -71,8 +75,14 @@ module soc_system (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
+	pll_0_locked_export,
+	pll_0_outclk2_clk,
 	reset_reset_n);	
 
+	output		adc_ltc2308_0_conduit_end_adc_convst;
+	output		adc_ltc2308_0_conduit_end_adc_sck;
+	output		adc_ltc2308_0_conduit_end_adc_sdi;
+	input		adc_ltc2308_0_conduit_end_adc_sdo;
 	input		clk_clk;
 	input		hps_0_f2h_cold_reset_req_reset_n;
 	input		hps_0_f2h_debug_reset_req_reset_n;
@@ -144,5 +154,7 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
+	output		pll_0_locked_export;
+	output		pll_0_outclk2_clk;
 	input		reset_reset_n;
 endmodule

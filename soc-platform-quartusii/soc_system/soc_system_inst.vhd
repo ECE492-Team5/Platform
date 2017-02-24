@@ -1,5 +1,9 @@
 	component soc_system is
 		port (
+			adc_ltc2308_0_conduit_end_adc_convst  : out   std_logic;                                        -- adc_convst
+			adc_ltc2308_0_conduit_end_adc_sck     : out   std_logic;                                        -- adc_sck
+			adc_ltc2308_0_conduit_end_adc_sdi     : out   std_logic;                                        -- adc_sdi
+			adc_ltc2308_0_conduit_end_adc_sdo     : in    std_logic                     := 'X';             -- adc_sdo
 			clk_clk                               : in    std_logic                     := 'X';             -- clk
 			hps_0_f2h_cold_reset_req_reset_n      : in    std_logic                     := 'X';             -- reset_n
 			hps_0_f2h_debug_reset_req_reset_n     : in    std_logic                     := 'X';             -- reset_n
@@ -71,12 +75,18 @@
 			memory_mem_odt                        : out   std_logic;                                        -- mem_odt
 			memory_mem_dm                         : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                      : in    std_logic                     := 'X';             -- oct_rzqin
+			pll_0_locked_export                   : out   std_logic;                                        -- export
+			pll_0_outclk2_clk                     : out   std_logic;                                        -- clk
 			reset_reset_n                         : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component soc_system;
 
 	u0 : component soc_system
 		port map (
+			adc_ltc2308_0_conduit_end_adc_convst  => CONNECTED_TO_adc_ltc2308_0_conduit_end_adc_convst,  --      adc_ltc2308_0_conduit_end.adc_convst
+			adc_ltc2308_0_conduit_end_adc_sck     => CONNECTED_TO_adc_ltc2308_0_conduit_end_adc_sck,     --                               .adc_sck
+			adc_ltc2308_0_conduit_end_adc_sdi     => CONNECTED_TO_adc_ltc2308_0_conduit_end_adc_sdi,     --                               .adc_sdi
+			adc_ltc2308_0_conduit_end_adc_sdo     => CONNECTED_TO_adc_ltc2308_0_conduit_end_adc_sdo,     --                               .adc_sdo
 			clk_clk                               => CONNECTED_TO_clk_clk,                               --                            clk.clk
 			hps_0_f2h_cold_reset_req_reset_n      => CONNECTED_TO_hps_0_f2h_cold_reset_req_reset_n,      --       hps_0_f2h_cold_reset_req.reset_n
 			hps_0_f2h_debug_reset_req_reset_n     => CONNECTED_TO_hps_0_f2h_debug_reset_req_reset_n,     --      hps_0_f2h_debug_reset_req.reset_n
@@ -148,6 +158,8 @@
 			memory_mem_odt                        => CONNECTED_TO_memory_mem_odt,                        --                               .mem_odt
 			memory_mem_dm                         => CONNECTED_TO_memory_mem_dm,                         --                               .mem_dm
 			memory_oct_rzqin                      => CONNECTED_TO_memory_oct_rzqin,                      --                               .oct_rzqin
+			pll_0_locked_export                   => CONNECTED_TO_pll_0_locked_export,                   --                   pll_0_locked.export
+			pll_0_outclk2_clk                     => CONNECTED_TO_pll_0_outclk2_clk,                     --                  pll_0_outclk2.clk
 			reset_reset_n                         => CONNECTED_TO_reset_reset_n                          --                          reset.reset_n
 		);
 
