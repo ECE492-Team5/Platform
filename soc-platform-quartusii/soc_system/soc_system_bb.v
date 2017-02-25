@@ -58,6 +58,10 @@ module soc_system (
 	hps_0_hps_io_hps_io_gpio_inst_GPIO53,
 	hps_0_hps_io_hps_io_gpio_inst_GPIO54,
 	hps_0_hps_io_hps_io_gpio_inst_GPIO61,
+	lcd_16207_0_external_RS,
+	lcd_16207_0_external_RW,
+	lcd_16207_0_external_data,
+	lcd_16207_0_external_E,
 	leds_pio_0_external_connection_export,
 	memory_mem_a,
 	memory_mem_ba,
@@ -137,6 +141,10 @@ module soc_system (
 	inout		hps_0_hps_io_hps_io_gpio_inst_GPIO53;
 	inout		hps_0_hps_io_hps_io_gpio_inst_GPIO54;
 	inout		hps_0_hps_io_hps_io_gpio_inst_GPIO61;
+	output		lcd_16207_0_external_RS;
+	output		lcd_16207_0_external_RW;
+	inout	[7:0]	lcd_16207_0_external_data;
+	output		lcd_16207_0_external_E;
 	output	[7:0]	leds_pio_0_external_connection_export;
 	output	[14:0]	memory_mem_a;
 	output	[2:0]	memory_mem_ba;

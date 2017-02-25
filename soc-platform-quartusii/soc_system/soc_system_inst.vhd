@@ -58,6 +58,10 @@
 			hps_0_hps_io_hps_io_gpio_inst_GPIO53  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO53
 			hps_0_hps_io_hps_io_gpio_inst_GPIO54  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO54
 			hps_0_hps_io_hps_io_gpio_inst_GPIO61  : inout std_logic                     := 'X';             -- hps_io_gpio_inst_GPIO61
+			lcd_16207_0_external_RS               : out   std_logic;                                        -- RS
+			lcd_16207_0_external_RW               : out   std_logic;                                        -- RW
+			lcd_16207_0_external_data             : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- data
+			lcd_16207_0_external_E                : out   std_logic;                                        -- E
 			leds_pio_0_external_connection_export : out   std_logic_vector(7 downto 0);                     -- export
 			memory_mem_a                          : out   std_logic_vector(14 downto 0);                    -- mem_a
 			memory_mem_ba                         : out   std_logic_vector(2 downto 0);                     -- mem_ba
@@ -141,6 +145,10 @@
 			hps_0_hps_io_hps_io_gpio_inst_GPIO53  => CONNECTED_TO_hps_0_hps_io_hps_io_gpio_inst_GPIO53,  --                               .hps_io_gpio_inst_GPIO53
 			hps_0_hps_io_hps_io_gpio_inst_GPIO54  => CONNECTED_TO_hps_0_hps_io_hps_io_gpio_inst_GPIO54,  --                               .hps_io_gpio_inst_GPIO54
 			hps_0_hps_io_hps_io_gpio_inst_GPIO61  => CONNECTED_TO_hps_0_hps_io_hps_io_gpio_inst_GPIO61,  --                               .hps_io_gpio_inst_GPIO61
+			lcd_16207_0_external_RS               => CONNECTED_TO_lcd_16207_0_external_RS,               --           lcd_16207_0_external.RS
+			lcd_16207_0_external_RW               => CONNECTED_TO_lcd_16207_0_external_RW,               --                               .RW
+			lcd_16207_0_external_data             => CONNECTED_TO_lcd_16207_0_external_data,             --                               .data
+			lcd_16207_0_external_E                => CONNECTED_TO_lcd_16207_0_external_E,                --                               .E
 			leds_pio_0_external_connection_export => CONNECTED_TO_leds_pio_0_external_connection_export, -- leds_pio_0_external_connection.export
 			memory_mem_a                          => CONNECTED_TO_memory_mem_a,                          --                         memory.mem_a
 			memory_mem_ba                         => CONNECTED_TO_memory_mem_ba,                         --                               .mem_ba
