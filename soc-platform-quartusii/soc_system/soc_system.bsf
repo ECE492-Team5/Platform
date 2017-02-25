@@ -4,26 +4,26 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
-Your use of Altera Corporation's design tools, logic functions 
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus II License Agreement,
-the Altera MegaCore Function License Agreement, or other 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
 applicable license agreement, including, without limitation, 
 that your use is for the sole purpose of programming logic 
-devices manufactured by Altera and sold by Altera or its 
+devices manufactured by Intel and sold by Intel or its 
 authorized distributors.  Please refer to the applicable 
 agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 0 0 752 1224)
+	(rect 0 0 752 1312)
 	(text "soc_system" (rect 341 -1 391 11)(font "Arial" (font_size 10)))
-	(text "inst" (rect 8 1208 20 1220)(font "Arial" ))
+	(text "inst" (rect 8 1296 20 1308)(font "Arial" ))
 	(port
 		(pt 0 120)
 		(input)
@@ -151,11 +151,11 @@ agreement for further details.
 		(line (pt 752 352)(pt 480 352)(line_width 1))
 	)
 	(port
-		(pt 0 1192)
+		(pt 0 1280)
 		(input)
 		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
-		(text "reset_reset_n" (rect 4 1181 82 1192)(font "Arial" (font_size 8)))
-		(line (pt 0 1192)(pt 272 1192)(line_width 1))
+		(text "reset_reset_n" (rect 4 1269 82 1280)(font "Arial" (font_size 8)))
+		(line (pt 0 1280)(pt 272 1280)(line_width 1))
 	)
 	(port
 		(pt 0 72)
@@ -279,9 +279,30 @@ agreement for further details.
 	(port
 		(pt 0 1152)
 		(output)
+		(text "lcd_16207_0_external_RS" (rect 0 0 106 12)(font "Arial" (font_size 8)))
+		(text "lcd_16207_0_external_RS" (rect 4 1141 142 1152)(font "Arial" (font_size 8)))
+		(line (pt 0 1152)(pt 272 1152)(line_width 1))
+	)
+	(port
+		(pt 0 1168)
+		(output)
+		(text "lcd_16207_0_external_RW" (rect 0 0 110 12)(font "Arial" (font_size 8)))
+		(text "lcd_16207_0_external_RW" (rect 4 1157 142 1168)(font "Arial" (font_size 8)))
+		(line (pt 0 1168)(pt 272 1168)(line_width 1))
+	)
+	(port
+		(pt 0 1200)
+		(output)
+		(text "lcd_16207_0_external_E" (rect 0 0 99 12)(font "Arial" (font_size 8)))
+		(text "lcd_16207_0_external_E" (rect 4 1189 136 1200)(font "Arial" (font_size 8)))
+		(line (pt 0 1200)(pt 272 1200)(line_width 1))
+	)
+	(port
+		(pt 0 1240)
+		(output)
 		(text "leds_pio_0_external_connection_export[7..0]" (rect 0 0 177 12)(font "Arial" (font_size 8)))
-		(text "leds_pio_0_external_connection_export[7..0]" (rect 4 1141 262 1152)(font "Arial" (font_size 8)))
-		(line (pt 0 1152)(pt 272 1152)(line_width 3))
+		(text "leds_pio_0_external_connection_export[7..0]" (rect 4 1229 262 1240)(font "Arial" (font_size 8)))
+		(line (pt 0 1240)(pt 272 1240)(line_width 3))
 	)
 	(port
 		(pt 752 112)
@@ -550,6 +571,13 @@ agreement for further details.
 		(line (pt 0 1112)(pt 272 1112)(line_width 1))
 	)
 	(port
+		(pt 0 1184)
+		(bidir)
+		(text "lcd_16207_0_external_data[7..0]" (rect 0 0 128 12)(font "Arial" (font_size 8)))
+		(text "lcd_16207_0_external_data[7..0]" (rect 4 1173 190 1184)(font "Arial" (font_size 8)))
+		(line (pt 0 1184)(pt 272 1184)(line_width 3))
+	)
+	(port
 		(pt 752 272)
 		(bidir)
 		(text "memory_mem_dq[31..0]" (rect 0 0 101 12)(font "Arial" (font_size 8)))
@@ -637,8 +665,13 @@ agreement for further details.
 		(text "hps_io_gpio_inst_GPIO53" (rect 277 1075 692 2160)(font "Arial" (color 0 0 0)))
 		(text "hps_io_gpio_inst_GPIO54" (rect 277 1091 692 2192)(font "Arial" (color 0 0 0)))
 		(text "hps_io_gpio_inst_GPIO61" (rect 277 1107 692 2224)(font "Arial" (color 0 0 0)))
-		(text "leds_pio_0_external_connection" (rect 86 1123 352 2259)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "export" (rect 277 1147 590 2304)(font "Arial" (color 0 0 0)))
+		(text "lcd_16207_0_external" (rect 147 1123 414 2259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "RS" (rect 277 1147 566 2304)(font "Arial" (color 0 0 0)))
+		(text "RW" (rect 277 1163 566 2336)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 277 1179 578 2368)(font "Arial" (color 0 0 0)))
+		(text "E" (rect 277 1195 560 2400)(font "Arial" (color 0 0 0)))
+		(text "leds_pio_0_external_connection" (rect 86 1211 352 2435)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 277 1235 590 2480)(font "Arial" (color 0 0 0)))
 		(text "memory" (rect 481 83 998 179)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "mem_a" (rect 445 107 920 224)(font "Arial" (color 0 0 0)))
 		(text "mem_ba" (rect 440 123 916 256)(font "Arial" (color 0 0 0)))
@@ -660,13 +693,13 @@ agreement for further details.
 		(text "export" (rect 450 387 936 784)(font "Arial" (color 0 0 0)))
 		(text "pll_0_outclk2" (rect 481 403 1040 819)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "clk" (rect 465 427 948 864)(font "Arial" (color 0 0 0)))
-		(text "reset" (rect 243 1163 516 2339)(font "Arial" (color 128 0 0)(font_size 9)))
-		(text "reset_n" (rect 277 1187 596 2384)(font "Arial" (color 0 0 0)))
-		(text " soc_system " (rect 696 1208 1464 2426)(font "Arial" ))
+		(text "reset" (rect 243 1251 516 2515)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 277 1275 596 2560)(font "Arial" (color 0 0 0)))
+		(text " soc_system " (rect 696 1296 1464 2602)(font "Arial" ))
 		(line (pt 272 32)(pt 480 32)(line_width 1))
-		(line (pt 480 32)(pt 480 1208)(line_width 1))
-		(line (pt 272 1208)(pt 480 1208)(line_width 1))
-		(line (pt 272 32)(pt 272 1208)(line_width 1))
+		(line (pt 480 32)(pt 480 1296)(line_width 1))
+		(line (pt 272 1296)(pt 480 1296)(line_width 1))
+		(line (pt 272 32)(pt 272 1296)(line_width 1))
 		(line (pt 273 52)(pt 273 124)(line_width 1))
 		(line (pt 274 52)(pt 274 124)(line_width 1))
 		(line (pt 273 140)(pt 273 164)(line_width 1))
@@ -683,19 +716,21 @@ agreement for further details.
 		(line (pt 478 52)(pt 478 76)(line_width 1))
 		(line (pt 273 340)(pt 273 1116)(line_width 1))
 		(line (pt 274 340)(pt 274 1116)(line_width 1))
-		(line (pt 273 1132)(pt 273 1156)(line_width 1))
-		(line (pt 274 1132)(pt 274 1156)(line_width 1))
+		(line (pt 273 1132)(pt 273 1204)(line_width 1))
+		(line (pt 274 1132)(pt 274 1204)(line_width 1))
+		(line (pt 273 1220)(pt 273 1244)(line_width 1))
+		(line (pt 274 1220)(pt 274 1244)(line_width 1))
 		(line (pt 479 92)(pt 479 356)(line_width 1))
 		(line (pt 478 92)(pt 478 356)(line_width 1))
 		(line (pt 479 372)(pt 479 396)(line_width 1))
 		(line (pt 478 372)(pt 478 396)(line_width 1))
 		(line (pt 479 412)(pt 479 436)(line_width 1))
 		(line (pt 478 412)(pt 478 436)(line_width 1))
-		(line (pt 273 1172)(pt 273 1196)(line_width 1))
-		(line (pt 274 1172)(pt 274 1196)(line_width 1))
+		(line (pt 273 1260)(pt 273 1284)(line_width 1))
+		(line (pt 274 1260)(pt 274 1284)(line_width 1))
 		(line (pt 0 0)(pt 752 0)(line_width 1))
-		(line (pt 752 0)(pt 752 1224)(line_width 1))
-		(line (pt 0 1224)(pt 752 1224)(line_width 1))
-		(line (pt 0 0)(pt 0 1224)(line_width 1))
+		(line (pt 752 0)(pt 752 1312)(line_width 1))
+		(line (pt 0 1312)(pt 752 1312)(line_width 1))
+		(line (pt 0 0)(pt 0 1312)(line_width 1))
 	)
 )
