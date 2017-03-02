@@ -36,6 +36,9 @@
 #define HW_REGS_SPAN ( 0x04000000 )
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 )
 
+void getDate(char date_buffer[]);
+void generateJSON(int channel, int value);
+
 int main(int argc, char **argv)
 {
     void *base;
