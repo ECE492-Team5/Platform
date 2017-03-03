@@ -1,11 +1,11 @@
 
 # Makefile based on Terasic Makefile for my_first_hps-fpga template project
 
-TARGET = eight_ch_adc_test
+TARGET = eight_ch_adc_test_new
 
-CFLAGS = -static -g -Wall -I${SOCEDS_DEST_ROOT}/ip/altera/hps/altera_hps/hwlib/include
-LDFLAGS = -g -Wall
-CC=$(CROSS_COMPILE)gcc
+CFLAGS = -static -g -Wall -I /home/debian/hwlib/include 
+LDFLAGS = -g -Wall -ljson
+CC = gcc
 ARCH = arm
 
 build: $(TARGET)

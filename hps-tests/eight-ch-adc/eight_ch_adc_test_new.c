@@ -125,7 +125,7 @@ void getDate(char date_buffer[]) {
     time(&timer);
     tm_info = localtime(&timer);
 
-    if (tmp == NULL) {
+    if (tm_info == NULL) {
         perror("localtime");
         exit(EXIT_FAILURE);
     }
@@ -145,7 +145,7 @@ void generateJSON(int channel, int value) {
     char path_buffer[30];
 
     //Get the date
-    get_date(date_buffer);
+    getDate(date_buffer);
 
     //Initialize new libjson JSON object
     json_object *j_sensor_obj = json_object_new_object();
