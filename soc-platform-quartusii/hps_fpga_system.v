@@ -5,8 +5,8 @@
 // Permission:
 //
 //   Terasic grants permission to use and modify this code for use
-//   in synthesis for all Terasic Development Boards and Altera Development 
-//   Kits made by Terasic.  Other use of this code, including the selling 
+//   in synthesis for all Terasic Development Boards and Altera Development
+//   Kits made by Terasic.  Other use of this code, including the selling
 //   ,duplication, or modification of any portion is strictly prohibited.
 //
 // Disclaimer:
@@ -15,23 +15,25 @@
 //   which illustrates how these types of functions can be implemented.
 //   It is the user's responsibility to verify their design for
 //   consistency and functionality through the use of formal
-//   verification methods.  Terasic provides no warranty regarding the use 
+//   verification methods.  Terasic provides no warranty regarding the use
 //   or functionality of this code.
 //
 // ============================================================================
-//           
+//
 //  Terasic Technologies Inc
 //  9F., No.176, Sec.2, Gongdao 5th Rd, East Dist, Hsinchu City, 30070. Taiwan
-//  
-//  
-//                     web: http://www.terasic.com/  
-//                     email: support@terasic.com
 //
+//
+//                     web: http://www.terasic.com/
+//                     email: support@terasic.com
+
+
+
 // ============================================================================
-//Date:  Tue Dec  2 09:28:38 2014
+// Modified: Satyen Akolkar and Andrei Usenka
+// Date:  Feb 25 2017
 // ============================================================================
 
-//`define ENABLE_CLK
 
 module hps_fpga_system(
 
@@ -44,12 +46,6 @@ module hps_fpga_system(
       ///////// ARDUINO /////////
       inout       [15:0] ARDUINO_IO,
       inout              ARDUINO_RESET_N,
-
-`ifdef ENABLE_CLK
-      ///////// CLK /////////
-      output             CLK_I2C_SCL,
-      inout              CLK_I2C_SDA,
-`endif /*ENABLE_CLK*/
 
       ///////// FPGA /////////
       input              FPGA_CLK1_50,
@@ -211,29 +207,29 @@ soc_system u0 (
     //HPS I2C2
     .hps_0_hps_io_hps_io_i2c1_inst_SDA     ( HPS_I2C1_SDAT  ),        //              .hps_io_i2c1_inst_SDA
     .hps_0_hps_io_hps_io_i2c1_inst_SCL     ( HPS_I2C1_SCLK  ),        //              .hps_io_i2c1_inst_SCL
-    //GPIO 
+    //GPIO
     .hps_0_hps_io_hps_io_gpio_inst_GPIO09  ( HPS_CONV_USB_N ),        //              .hps_io_gpio_inst_GPIO09
     .hps_0_hps_io_hps_io_gpio_inst_GPIO35  ( HPS_ENET_INT_N ),        //              .hps_io_gpio_inst_GPIO35
     .hps_0_hps_io_hps_io_gpio_inst_GPIO40  ( HPS_LTC_GPIO   ),        //              .hps_io_gpio_inst_GPIO40
     .hps_0_hps_io_hps_io_gpio_inst_GPIO53  ( HPS_LED   ),             //              .hps_io_gpio_inst_GPIO53
     .hps_0_hps_io_hps_io_gpio_inst_GPIO54  ( HPS_KEY   ),             //              .hps_io_gpio_inst_GPIO54
     .hps_0_hps_io_hps_io_gpio_inst_GPIO61  ( HPS_GSENSOR_INT ),       //              .hps_io_gpio_inst_GPIO61
-    
+
     .hps_0_f2h_stm_hw_events_stm_hwevents  (stm_hw_events),           //  hps_0_f2h_stm_hw_events.stm_hwevents
     .hps_0_h2f_reset_reset_n               (hps_fpga_reset_n),        //  hps_0_h2f_reset.reset_n
     .hps_0_f2h_warm_reset_req_reset_n      (~hps_warm_reset),         //  hps_0_f2h_warm_reset_req.reset_n
     .hps_0_f2h_debug_reset_req_reset_n     (~hps_debug_reset),        //  hps_0_f2h_debug_reset_req.reset_n
     .hps_0_f2h_cold_reset_req_reset_n      (~hps_cold_reset),         //  hps_0_f2h_cold_reset_req.reset_n
-    
+
     //7 GREEN LEDS
     .leds_pio_0_external_connection_export (LED),                      //  leds_pio_0_external_connection.export
-    
-    //8 CHANNEL ADC (On-board SPI Interface Controller) Component From Terasic 
+
+    //8 CHANNEL ADC (On-board SPI Interface Controller) Component From Terasic
     .adc_ltc2308_0_conduit_end_adc_convst  (ADC_CONVST),               //  adc_ltc2308_0_conduit_end.adc_convst
     .adc_ltc2308_0_conduit_end_adc_sck     (ADC_SCK),                  //                           .adc_sck
     .adc_ltc2308_0_conduit_end_adc_sdi     (ADC_SDI),                  //                           .adc_sdi
     .adc_ltc2308_0_conduit_end_adc_sdo     (ADC_SDO),                   //                           .adc_sdo
-    
+
     // LCD
     .lcd_16207_0_external_RS               (GPIO_0[16]),               //           lcd_16207_0_external.RS
     .lcd_16207_0_external_RW               (GPIO_0[17]),               //                               .RW
@@ -274,7 +270,7 @@ altera_edge_detector pulse_warm_reset (
     defparam pulse_warm_reset.PULSE_EXT = 2;
     defparam pulse_warm_reset.EDGE_TYPE = 1;
     defparam pulse_warm_reset.IGNORE_RST_WHILE_BUSY = 1;
-  
+
 altera_edge_detector pulse_debug_reset (
     .clk       (FPGA_CLK1_50),
     .rst_n     (hps_fpga_reset_n),

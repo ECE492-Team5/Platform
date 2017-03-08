@@ -1,5 +1,10 @@
 # Platform
-##This repository contains the following:
-* Restful Server implementation using Node.JS and Express.JS in the /Server/ directory
-* FPGA hardware implementation and Quartus project folder
-* Linux image containing functional state of our linux OS with appropriately installed packages and libraries
+## This repository contains the following:
+* Hardware Platform in soc-platform-quartusii folder containing:
+    - FPGA Hardware Quartus project
+    - Quartus Generated Output Files
+
+* System Core in system-core folder containing:
+    - U-Boot Bootloader Submodule from Altera-Opensource
+    - Linux Kernel Image from Altera-Opensource
+    - Root File System that the system uses
