@@ -1,3 +1,6 @@
 [submodule "system-core/u-boot-socfpga"]
 	path = system-core/u-boot-socfpga
 	url = https://github.com/altera-opensource/u-boot-socfpga
+[submodule "system-core/linux-socfpga"]
+	path = system-core/linux-socfpga
+	url = https://github.com/altera-opensource/linux-socfpga
