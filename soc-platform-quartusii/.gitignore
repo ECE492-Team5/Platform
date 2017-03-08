@@ -6,3 +6,10 @@ incremental_db/
 *.done
 *.cdf
 .qsys_edit
+
+PLLJ_PLLSPE_INFO.txt
+c5_pin_model_dump.txt
+hps_sdram_p0_all_pins.txt
+hps_sdram_p0_summary.csv
+soc_system.jdi
+soc_system.pin
