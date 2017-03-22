@@ -1,3 +1,10 @@
+<!--
+This File Is from Rocketboards' Guide for Development on the DE0 Nano SoC
+The guide can be found here: https://rocketboards.org/foswiki/view/Documentation/EmbeddedLinuxBeginnerSGuide
+This file is from the atlas_linux_ghrd.tar.gz project archive provided as part of the tutorial guide.
+
+Accessed By: Satyen Akolkar March 22 2017
+-->
 <BoardInfo pov="hps_0_arm_a9_0">
 
 <DTAppend name="model" type="string" parentlabel="" val="Altera SOCFPGA Cyclone V"/>
