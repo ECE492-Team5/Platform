@@ -1,11 +1,13 @@
 
 # Makefile based on Terasic Makefile for my_first_hps-fpga template project
+# Modified By: Satyen Akolkar
+# March 22 2017
 
 TARGET = green_leds_test
 
-CFLAGS = -static -g -Wall -I${SOCEDS_DEST_ROOT}/ip/altera/hps/altera_hps/hwlib/include
+CFLAGS = -static -g -Wall
 LDFLAGS = -g -Wall
-CC=$(CROSS_COMPILE)gcc
+CC = gcc
 ARCH = arm
 
 build: $(TARGET)

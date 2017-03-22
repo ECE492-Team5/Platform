@@ -1,10 +1,12 @@
 
 # Makefile based on Terasic Makefile for my_first_hps-fpga template project
+# Modified By: Satyen Akolkar
+# March 22 2017
 
-TARGET = eight_ch_adc_test_new
+TARGET = eight_ch_adc_test
 
-CFLAGS = -static -g -Wall -I /home/debian/hwlib/include 
-LDFLAGS = -g -Wall -ljson
+CFLAGS = -static -g -Wall
+LDFLAGS = -g -Wall
 CC = gcc
 ARCH = arm
 

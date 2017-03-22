@@ -1,3 +1,9 @@
+// This program is adapted from  Terasic's DE0-Nano-SoC_My_First_HPS-Fpga
+// template project.
+
+// Modified by: Satyen Akolkar
+// Date: March 22 2017 
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -10,11 +16,16 @@
 //     Make sure the Altera Provided SoC EDS headers are included during build.
 //     These headers are found in Quartus' Installation folder
 //     /opt/altera/14.0/embedded/ip/altera/hps/altera_hps/hwlib/include
+// 
+// These header files have been copied to /usr/local/include on the board so
+// gcc will automatically find them.
+
 #include "socal/socal.h"
 #include "socal/hps.h"
 #include "socal/alt_gpio.h"
 
 // The hps_0 header file created with sopc-create-header-file utility.
+// This file is also copied into /usr/local/include on the board.
 #include "hps_0.h"
 
 #define HW_REGS_BASE ( ALT_STM_OFST )
@@ -52,29 +63,22 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
 
-    // derive leds base address from base HPS registers
+    // derive adc component base address from base HPS registers
     adc_base = (uint32_t*) (base + ((ALT_LWFPGASLVS_OFST + ADC_LTC2308_0_BASE) & HW_REGS_MASK));
 
-    printf("ADC BASE ADDR = 0x%x\n", adc_base);
-
-    // IOWR(adc_base, 0x01, nReadNum);
+    // set the number of reads to perform
     *(adc_base + 0x01) = nReadNum;
 
-    //IOWR(adc_base, 0x00, (channel << 1) | 0x00);
-    //IOWR(adc_base, 0x00, (channel << 1) | 0x01);
-    //IOWR(adc_base, 0x00, (channel << 1) | 0x00);
-    
+    // indicate to the adc component to begin reads.
     *adc_base = (channel << 1) | 0x00;
     *adc_base = (channel << 1) | 0x01;
     *adc_base = (channel << 1) | 0x00;
 
-    printf("wrote: 0x%04x", ((channel << 1) | 0x01));
-    
+    // wait for component to finish reading
     usleep(1);
-
-    //while( (IORD(adc_base, 0x00) & 0x01) == 0x00 );
     while( (*adc_base & 0x01) == 0x00);
 
+    // output data
     for(i = 0; i < nReadNum; ++i) {
         // value = IORD(adc_base, 0x01); 
         value = *(adc_base + 0x01);

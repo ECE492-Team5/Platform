@@ -1,3 +1,9 @@
+// This program is adapted from  Terasic's DE0-Nano-SoC_My_First_HPS-Fpga
+// template project.
+
+// Modified by: Satyen Akolkar
+// Date: March 22 2017 
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -10,11 +16,16 @@
 //     Make sure the Altera Provided SoC EDS headers are included during build.
 //     These headers are found in Quartus' Installation folder
 //     /opt/altera/14.0/embedded/ip/altera/hps/altera_hps/hwlib/include
+// 
+// These header files have been copied to /usr/local/include on the board so
+// gcc will automatically find them.
+
 #include "socal/socal.h"
 #include "socal/hps.h"
 #include "socal/alt_gpio.h"
 
 // The hps_0 header file created with sopc-create-header-file utility.
+// This file is also copied into /usr/local/include on the board.
 #include "hps_0.h"
 
 #define HW_REGS_BASE ( ALT_STM_OFST )
@@ -28,6 +39,7 @@ int main(int argc, char **argv)
     int memdevice_fd;
     uint8_t led_mask = 0xFE;
     int num_led_shifts;
+    int i;
 
     if(argc != 2) {
         printf("Performing 24 LED shifts.\n");
@@ -53,7 +65,7 @@ int main(int argc, char **argv)
     // derive leds base address from base HPS registers
     leds_base = (uint32_t*) (base + ((ALT_LWFPGASLVS_OFST + LEDS_PIO_0_BASE) & HW_REGS_MASK));
 
-    for(int i = 0; i < num_led_shifts; ++i) {
+    for(i = 0; i < num_led_shifts; ++i) {
         
         // Set LEDS according to mask
         *(uint32_t *) leds_base = ~led_mask;
