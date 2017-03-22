@@ -120,22 +120,6 @@
          type = "String";
       }
    }
-   element lcd_16207_0
-   {
-      datum _sortIndex
-      {
-         value = "11";
-         type = "int";
-      }
-   }
-   element lcd_16207_0.control_slave
-   {
-      datum baseAddress
-      {
-         value = "0";
-         type = "String";
-      }
-   }
    element leds_pio_0
    {
       datum _sortIndex
@@ -266,11 +250,6 @@
    dir="start" />
  <interface name="hps_0_h2f_user0_clock" internal="hps_0.h2f_user0_clock" />
  <interface name="hps_0_hps_io" internal="hps_0.hps_io" type="conduit" dir="end" />
- <interface
-   name="lcd_16207_0_external"
-   internal="lcd_16207_0.external"
-   type="conduit"
-   dir="end" />
  <interface
    name="leds_pio_0_external_connection"
    internal="leds_pio_0.external_connection"
@@ -871,11 +850,6 @@
   <parameter name="writeBufferDepth" value="64" />
   <parameter name="writeIRQThreshold" value="8" />
  </module>
- <module
-   name="lcd_16207_0"
-   kind="altera_avalon_lcd_16207"
-   version="14.1"
-   enabled="1" />
  <module name="leds_pio_0" kind="altera_avalon_pio" version="14.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -1163,15 +1137,6 @@
    kind="avalon"
    version="14.1"
    start="hps_0.h2f_lw_axi_master"
-   end="lcd_16207_0.control_slave">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="14.1"
-   start="hps_0.h2f_lw_axi_master"
    end="leds_pio_0.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0010" />
@@ -1257,11 +1222,6 @@
    kind="clock"
    version="14.1"
    start="pll_0.outclk0"
-   end="lcd_16207_0.clk" />
- <connection
-   kind="clock"
-   version="14.1"
-   start="pll_0.outclk0"
    end="onchip_memory2_0.clk1" />
  <connection
    kind="clock"
@@ -1333,11 +1293,6 @@
    start="clk_0.clk_reset"
    end="leds_pio_0.reset" />
  <connection kind="reset" version="14.1" start="clk_0.clk_reset" end="pll_0.reset" />
- <connection
-   kind="reset"
-   version="14.1"
-   start="clk_0.clk_reset"
-   end="lcd_16207_0.reset" />
  <connection
    kind="reset"
    version="14.1"

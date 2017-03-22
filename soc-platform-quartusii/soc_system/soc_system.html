@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2017.02.25.13:25:59</td>
+    <td class="l">2017.03.21.23:04:48</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -96,9 +96,6 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <br/>&#160;&#160;
      <a href="#module_jtag_uart"><b>jtag_uart</b>
      </a> altera_avalon_jtag_uart 14.1
-     <br/>&#160;&#160;
-     <a href="#module_lcd_16207_0"><b>lcd_16207_0</b>
-     </a> altera_avalon_lcd_16207 14.1
      <br/>&#160;&#160;
      <a href="#module_leds_pio_0"><b>leds_pio_0</b>
      </a> altera_avalon_pio 14.1
@@ -1060,27 +1057,6 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="addr"><span style="color:#989898">0x</span>00020000</td>
     <td class="addr"><span style="color:#989898">0x</span>ff220000</td>
     <td class="addr"><span style="color:#989898">0x</span>ff220000</td>
-    <td class="empty"></td>
-   </tr>
-   <tr>
-    <td class="slavemodule">&#160;
-     <a href="#module_lcd_16207_0"><b>lcd_16207_0</b>
-     </a>
-    </td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-   </tr>
-   <tr>
-    <td class="slaveb">control_slave&#160;</td>
-    <td class="empty"></td>
-    <td class="empty"></td>
-    <td class="addr"><span style="color:#989898">0x</span>00000000</td>
-    <td class="addr"><span style="color:#989898">0x</span>ff200000</td>
-    <td class="addr"><span style="color:#989898">0x</span>ff200000</td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -20467,7 +20443,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_hps_0_clk_0">hps_0_clk_0</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="157">hps_0_bridges</td>
+      <td class="main" rowspan="154">hps_0_bridges</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;reset_sink</td>
@@ -21204,22 +21180,6 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td class="from">h2f_lw&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
        <a href="#module_sysid_qsys">sysid_qsys</a>
-      </td>
-     </tr>
-     <tr>
-      <td></td>
-      <td></td>
-      <td class="to">&#160;&#160;control_slave</td>
-     </tr>
-     <tr style="height:6px">
-      <td></td>
-     </tr>
-     <tr>
-      <td></td>
-      <td></td>
-      <td class="from">h2f_lw&#160;&#160;</td>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_lcd_16207_0">lcd_16207_0</a>
       </td>
      </tr>
      <tr>
@@ -29137,75 +29097,6 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     </tr>
    </table>
   </div>
-  <a name="module_lcd_16207_0"> </a>
-  <div>
-   <hr/>
-   <h2>lcd_16207_0</h2>altera_avalon_lcd_16207 v14.1
-   <br/>
-   <div class="greydiv">
-    <table class="connectionboxes">
-     <tr>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_hps_0_bridges">hps_0_bridges</a>
-      </td>
-      <td class="from">h2f_lw&#160;&#160;</td>
-      <td class="main" rowspan="8">lcd_16207_0</td>
-     </tr>
-     <tr>
-      <td class="to">&#160;&#160;control_slave</td>
-     </tr>
-     <tr style="height:6px">
-      <td></td>
-     </tr>
-     <tr>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_pll_0">pll_0</a>
-      </td>
-      <td class="from">outclk0&#160;&#160;</td>
-     </tr>
-     <tr>
-      <td class="to">&#160;&#160;clk</td>
-     </tr>
-     <tr style="height:6px">
-      <td></td>
-     </tr>
-     <tr>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_clk_0">clk_0</a>
-      </td>
-      <td class="from">clk_reset&#160;&#160;</td>
-     </tr>
-     <tr>
-      <td class="to">&#160;&#160;reset</td>
-     </tr>
-    </table>
-   </div>
-   <br/>
-   <br/>
-   <table class="flowbox">
-    <tr>
-     <td class="parametersbox">
-      <h2>Parameters</h2>
-      <table>
-       <tr>
-        <td class="parametername">deviceFamily</td>
-        <td class="parametervalue">UNKNOWN</td>
-       </tr>
-       <tr>
-        <td class="parametername">generateLegacySim</td>
-        <td class="parametervalue">false</td>
-       </tr>
-      </table>
-     </td>
-    </tr>
-   </table>&#160;&#160;
-   <table class="flowbox">
-    <tr>
-     <td class="parametersbox">
-      <h2>Software Assignments</h2>(none)</td>
-    </tr>
-   </table>
-  </div>
   <a name="module_leds_pio_0"> </a>
   <div>
    <hr/>
@@ -29674,7 +29565,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="39">pll_0</td>
+      <td class="main" rowspan="36">pll_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;refclk</td>
@@ -29755,22 +29646,6 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td class="from">outclk0&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
        <a href="#module_hps_only_master">hps_only_master</a>
-      </td>
-     </tr>
-     <tr>
-      <td></td>
-      <td></td>
-      <td class="to">&#160;&#160;clk</td>
-     </tr>
-     <tr style="height:6px">
-      <td></td>
-     </tr>
-     <tr>
-      <td></td>
-      <td></td>
-      <td class="from">outclk0&#160;&#160;</td>
-      <td class="neighbor" rowspan="2">
-       <a href="#module_lcd_16207_0">lcd_16207_0</a>
       </td>
      </tr>
      <tr>
@@ -31860,7 +31735,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1488054349</td>
+        <td class="parametervalue">1490159079</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_DEVICE_FAMILY</td>
@@ -31889,7 +31764,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1488054349</td>
+        <td class="parametervalue">1490159079</td>
        </tr>
       </table>
      </td>
@@ -31898,8 +31773,8 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </div>
   <table class="blueBar">
    <tr>
-    <td class="l">generation took 0.02 seconds</td>
-    <td class="r">rendering took 0.35 seconds</td>
+    <td class="l">generation took 0.03 seconds</td>
+    <td class="r">rendering took 0.34 seconds</td>
    </tr>
   </table>
  </body>

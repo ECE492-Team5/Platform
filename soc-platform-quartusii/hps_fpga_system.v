@@ -228,20 +228,7 @@ soc_system u0 (
     .adc_ltc2308_0_conduit_end_adc_convst  (ADC_CONVST),               //  adc_ltc2308_0_conduit_end.adc_convst
     .adc_ltc2308_0_conduit_end_adc_sck     (ADC_SCK),                  //                           .adc_sck
     .adc_ltc2308_0_conduit_end_adc_sdi     (ADC_SDI),                  //                           .adc_sdi
-    .adc_ltc2308_0_conduit_end_adc_sdo     (ADC_SDO),                   //                           .adc_sdo
-
-    // LCD
-    .lcd_16207_0_external_RS               (GPIO_0[16]),               //           lcd_16207_0_external.RS
-    .lcd_16207_0_external_RW               (GPIO_0[17]),               //                               .RW
-    .lcd_16207_0_external_data             ({ GPIO_0[1],
-                                              GPIO_0[2],
-                                              GPIO_0[3],
-                                              GPIO_0[4],
-                                              GPIO_0[5],
-                                              GPIO_0[6],
-                                              GPIO_0[7],
-                                              GPIO_0[8]}),             //                               .data
-    .lcd_16207_0_external_E                (GPIO_0[18])                //                               .E
+    .adc_ltc2308_0_conduit_end_adc_sdo     (ADC_SDO)                   //                           .adc_sdo
 );
 
 

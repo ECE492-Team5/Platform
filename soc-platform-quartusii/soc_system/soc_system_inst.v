@@ -57,10 +57,6 @@
 		.hps_0_hps_io_hps_io_gpio_inst_GPIO53  (<connected-to-hps_0_hps_io_hps_io_gpio_inst_GPIO53>),  //                               .hps_io_gpio_inst_GPIO53
 		.hps_0_hps_io_hps_io_gpio_inst_GPIO54  (<connected-to-hps_0_hps_io_hps_io_gpio_inst_GPIO54>),  //                               .hps_io_gpio_inst_GPIO54
 		.hps_0_hps_io_hps_io_gpio_inst_GPIO61  (<connected-to-hps_0_hps_io_hps_io_gpio_inst_GPIO61>),  //                               .hps_io_gpio_inst_GPIO61
-		.lcd_16207_0_external_RS               (<connected-to-lcd_16207_0_external_RS>),               //           lcd_16207_0_external.RS
-		.lcd_16207_0_external_RW               (<connected-to-lcd_16207_0_external_RW>),               //                               .RW
-		.lcd_16207_0_external_data             (<connected-to-lcd_16207_0_external_data>),             //                               .data
-		.lcd_16207_0_external_E                (<connected-to-lcd_16207_0_external_E>),                //                               .E
 		.leds_pio_0_external_connection_export (<connected-to-leds_pio_0_external_connection_export>), // leds_pio_0_external_connection.export
 		.memory_mem_a                          (<connected-to-memory_mem_a>),                          //                         memory.mem_a
 		.memory_mem_ba                         (<connected-to-memory_mem_ba>),                         //                               .mem_ba
