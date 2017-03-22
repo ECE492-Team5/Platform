@@ -30,3 +30,7 @@ sopc2dts --input output/soc_system.sopcinfo \
 echo ''
 echo 'Compiling Device Tree Source'
 dtc -f -I dts -O dtb -o output/soc_system.dtb output/soc_system.dts
+
+# Complete
+echo ''
+echo 'Complete. Make sure to update the .rbf file through Quartus.'
